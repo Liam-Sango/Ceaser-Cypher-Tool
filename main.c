@@ -5,28 +5,47 @@
 #include <stdbool.h>
 
 //GLOBAL VARS
-char Lowercase_Eng_alphabet[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-char str_chunk[10] = {};
+char current_txt_chunk [256] = {"This is a sample text."};
+int shift_value = 3;
+int text_chunk_size = sizeof(current_txt_chunk) / sizeof(current_txt_chunk[0]);
+
+//FUNCTIONS
+
+//FReads texts chunks from an input file
+char* read_text_chunk (char *txt_chunk_ptr) {
+    return 0;
+}
+
+//processes the text chunk using Caesar Cypher algorithm
+char* Process_text_chunk (char *text_chunk, int text_chunk_size, int shift) {
+
+    //input validation
+    if (text_chunk || text_chunk_size || shift == NULL) {
+        return NULL;
+    }
+
+    if (shift < 0) {
+        shift = shift + 26;
+    }
+
+    //filtering
+
+    //processing
+    for (int i = 0; i < text_chunk_size; i++) {
+        text_chunk[i] = text_chunk[i] + shift;
+    }
+    
+    return text_chunk;
+}
+
+//Writes processed text chunks to an output file
+char* write_text_chunk (char* txt_chunk_ptr[256]) {
+    return 0;
+}
+
+//MAIN LOOP
 
 int main() {  
-}
-
-
-
-//PROCESSING FUNCTIONS
-char* create_cypher_table () {
- return 0;
-}
-
-char* Process_text_chunk () {
-    return 0;
-}
-
-//FILE HANDLING FUNCTIONS
-char* read_text_chunk () {
-    return 0;
-}
-
-char* write_text_chunk () {
+    //VARIABLES
     return 0;
 }

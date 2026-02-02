@@ -11,7 +11,7 @@ int text_chunk_size = sizeof(current_txt_chunk) / sizeof(current_txt_chunk[0]);
 
 //FUNCTIONS
 
-//FReads texts chunks from an input file
+//Reads texts chunks from an input file
 char* read_text_chunk (char *txt_chunk_ptr) {
     return 0;
 }
@@ -22,6 +22,12 @@ char* Process_text_chunk (char *text_chunk, int text_chunk_size, int shift) {
     //input validation
     if (text_chunk == NULL) {
         return NULL;
+    }
+    if (text_chunk_size <= 0 || text_chunk_size > 256) {
+        return 1;
+    }
+    else if (shift <= 0 || shift >= 27) {
+        shift = 1;
     }
 
     //filtering

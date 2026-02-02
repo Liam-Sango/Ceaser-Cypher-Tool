@@ -20,19 +20,14 @@ char* read_text_chunk (char *txt_chunk_ptr) {
 char* Process_text_chunk (char *text_chunk, int text_chunk_size, int shift) {
 
     //input validation
-    if (text_chunk || text_chunk_size || shift == NULL) {
+    if (text_chunk == NULL) {
         return NULL;
-    }
-
-    if (shift < 0) {
-        shift = shift + 26;
     }
 
     //filtering
 
     //processing
     for (int i = 0; i < text_chunk_size; i++) {
-        text_chunk[i] = text_chunk[i] + shift;
     }
     
     return text_chunk;

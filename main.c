@@ -28,7 +28,7 @@ char* Process_text_chunk (char *text_chunk, int text_chunk_size, int shift) {
         return NULL;
     }
 
-    else if (shift <= 0 || shift >= 27) {
+    else if (shift <= -27 || shift >= 27) {
         shift = 1;
     }
 
@@ -43,25 +43,38 @@ char* Process_text_chunk (char *text_chunk, int text_chunk_size, int shift) {
 
         }
     }
-
-    //processing
+    
+    // processing
     for (int i = 0; i < text_chunk_size; i++) {
-        //uppercase
-        if (text_chunk[i] >= 97 && text_chunk[i] <= 122) {
+
+        // lowercase
+        if (text_chunk[i] >= 'a' && text_chunk[i] <= 'z') {
             text_chunk[i] = text_chunk[i] + shift;
-        //lowercase
-        } else if ( (text_chunk[i] >= 65 && text_chunk[i] <= 90)) {
+
+            if (text_chunk[i] > 'z') {
+                text_chunk[i] -= 26;
+
+            } else if (text_chunk[i] < 'a') {
+                text_chunk[i] += 26;
+            }
+        }
+    
+        // uppercase
+        else if (text_chunk[i] >= 'A' && text_chunk[i] <= 'Z') {
             text_chunk[i] = text_chunk[i] + shift;
-        //whitespace
-        } else {
-            continue;
+
+            if (text_chunk[i] > 'Z') {
+                text_chunk[i] -= 26;
+
+            } else if (text_chunk[i] < 'A') {
+                text_chunk[i] += 26;
+            }
         }
     }
-    
+
     return text_chunk;
 }
-
-
+    
 //Writes processed text chunks to an output file
 char* write_text_chunk (char* txt_chunk_ptr[256]) {
     return 0;

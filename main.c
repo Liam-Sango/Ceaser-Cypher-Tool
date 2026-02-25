@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 //Global variables
-char text_chunk [2048] = {};
-
+char text_chunk [2048] = {"This is a simple test of my write_text_chunk function."};
+char file_name [512] = {"/home/anon/Desktop/Personal/Code/Ceaser-Cypher-Tool/output.txt"};
 int shift_value = 3;
 
 
@@ -15,6 +15,7 @@ int write_text_chunk(char output_file_path[512], char *text_chunk);
 
 //Main
 int main () {
+    write_text_chunk(file_name, text_chunk);
     return 0;
 }
 
@@ -81,7 +82,6 @@ char* read_text_chunk(char input_file_path[512], char *text_chunk) {
 
     //Checks for a a null pointer
     if (file_read_pointer = NULL) {
-        fclose(file_read_pointer);
         return NULL;
     } 
 
@@ -97,16 +97,15 @@ int write_text_chunk(char output_file_path[512], char *text_chunk) {
 
     //defines and opens our file pointer
     FILE *file_write_pointer;
-    file_write_pointer = fopen(output_file_path, "w");
+    file_write_pointer == fopen(output_file_path, "w");
 
     //Checks for a a null pointer
     if (file_write_pointer = NULL) {
-        fclose(file_write_pointer);
         return 1;
     } 
     
     //writes the content of text_chunk to the output file.
-    fprintf(file_write_pointer, text_chunk);
+    fprintf(file_write_pointer, "%s", text_chunk);
     fclose(file_write_pointer);
 
     return 0;

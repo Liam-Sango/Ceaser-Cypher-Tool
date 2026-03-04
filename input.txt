@@ -1,0 +1,1 @@
+This is a full test of each function ive wrote, if this encrypted, the program works!
